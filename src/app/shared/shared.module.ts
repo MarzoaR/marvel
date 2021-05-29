@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 
 
@@ -8,8 +9,12 @@ import { MenuComponent } from './menu/menu.component';
   declarations: [
     MenuComponent
   ],
+  exports:[
+    MenuComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

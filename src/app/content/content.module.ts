@@ -8,6 +8,7 @@ import { CreatorsListComponent } from './pages/creators-list/creators-list.compo
 import { CreatorDetailsComponent } from './pages/creator-details/creator-details.component';
 import { SerieDetailsComponent } from './pages/serie-details/serie-details.component';
 import { SeriesListComponent } from './pages/series-list/series-list.component';
+import { ContentRoutingModule } from './content-routing.module';
 
 
 
@@ -23,7 +24,8 @@ import { SeriesListComponent } from './pages/series-list/series-list.component';
     SeriesListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ContentRoutingModule
   ]
 })
 export class ContentModule { }
