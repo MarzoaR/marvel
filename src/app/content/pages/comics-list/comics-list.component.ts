@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Comic } from '../../interfaces/comic.interface';
+import { ContentServiceService } from '../../services/content-service.service';
 
 @Component({
   selector: 'app-comics-list',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComicsListComponent implements OnInit {
 
-  constructor() { }
+  listComics: Comic[] = [];
+
+  constructor( private contentService: ContentServiceService ) { }
 
   ngOnInit(): void {
+
+    this.contentService.buscarComics();
+
+    this.listComics = this.contentService.comics;
+
+    // console.log('Componente comics',this.listComics)
   }
+
+
+
 
 }

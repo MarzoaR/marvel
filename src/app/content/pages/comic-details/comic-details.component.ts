@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComicDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit(): void {
+
   }
 
 }
