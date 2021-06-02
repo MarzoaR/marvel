@@ -1,1 +1,20 @@
-<p>creator-details works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-4">
+      <img [src]="creator.thumbnail | cancatImage" alt="{{ creator.fullName }}" class="img-fluid">
+    </div>
+    <div class="col col-sm-8">
+      <h3>{{ creator.fullName }}</h3>
+      <h4>First Name: {{creator.firstName}}</h4>
+      <h4>Middle Name: {{creator.middleName}}</h4>
+      <h4>Last Name: {{creator.lastName}}</h4>
+      <!-- <h4>Description:</h4>
+      <p *ngIf="creator.description === null || creator.description === '' ;else templateName">No data</p>
+      <ng-template #templateName>
+        <p>{{ creator.description }}</p>
+      </ng-template>
+      <p class="card-text"><strong>Price: </strong>{{ creator.prices | price }} $</p> -->
+
+    </div>
+  </div>
+</div>

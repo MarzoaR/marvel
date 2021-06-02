@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentServiceService } from '../../content/services/content-service.service';
+import { ContentService } from '../../content/services/content-service.service';
 
 @Component({
   selector: 'app-news',
@@ -8,7 +8,7 @@ import { ContentServiceService } from '../../content/services/content-service.se
 })
 export class NewsComponent implements OnInit {
 
-  constructor( private serviceServices: ContentServiceService) { }
+  constructor( private serviceServices: ContentService) { }
 
   ngOnInit(): void {
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Comic } from '../../interfaces/comic.interface';
+import { Comics } from '../../interfaces/comics.interface';
 
 @Component({
   selector: 'app-comic',
@@ -8,7 +8,7 @@ import { Comic } from '../../interfaces/comic.interface';
 })
 export class ComicComponent implements OnInit {
 
-  @Input() listComics: Comic[] = [];
+  @Input() listComics: Comics[] = [];
 
   constructor() { }
 

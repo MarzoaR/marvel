@@ -1,28 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { Comic } from '../../interfaces/comic.interface';
-import { ContentServiceService } from '../../services/content-service.service';
+import { DOCUMENT } from '@angular/common';
+import { Component,HostListener, Inject, OnInit } from '@angular/core';
+import { Comics } from '../../interfaces/comics.interface';
+import { ContentService } from '../../services/content-service.service';
 
 @Component({
   selector: 'app-comics-list',
   templateUrl: './comics-list.component.html',
   styleUrls: ['./comics-list.component.css']
 })
+
 export class ComicsListComponent implements OnInit {
 
-  listComics: Comic[] = [];
+  listComics: Comics[] = [];
 
-  constructor( private contentService: ContentServiceService ) { }
+  offset: number = 0;
+
+  constructor(
+                @Inject(DOCUMENT) private document: Document,
+                private contentService: ContentService ) { }
 
   ngOnInit(): void {
 
-    this.contentService.buscarComics();
+    this.getComics();
 
-    this.listComics = this.contentService.comics;
+  }
 
-    // console.log('Componente comics',this.listComics)
+  getComics(){
+
+    this.contentService.getComics()
+        .subscribe( resp => {
+          this.listComics.push(...resp.data.results);
+        });
   }
 
 
+  getComicsScroll(){
+    this.offset +=20;
+    this.contentService.getComicsInfinity( this.offset )
+    .subscribe( resp => {
+      this.listComics.push(...resp.data.results);
+    });
 
+  }
+  @HostListener('window:scroll')
+  onWindowScroll():void {
+
+    if(this.document.documentElement.offsetHeight - window.pageYOffset == window.innerHeight){
+      this.getComicsScroll();
+    }
+
+  }
 
 }

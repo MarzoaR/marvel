@@ -2,3 +2,12 @@
 .card{
   border: none !important;
 }
+
+.pointer{
+  cursor: pointer !important;
+}
+
+.container{
+  margin-top: 50px !important;
+  padding-top: 50px !important;
+}

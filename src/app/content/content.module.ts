@@ -13,6 +13,11 @@ import { SerieDetailsComponent } from './pages/serie-details/serie-details.compo
 import { SeriesListComponent } from './pages/series-list/series-list.component';
 import { CharacterComponent } from './components/character/character.component';
 import { ComicComponent } from './components/comic/comic.component';
+import { ConcatThumbnailPipe } from './pipes/concat-thumbnail.pipe';
+import { PricePipe } from './pipes/price.pipe';
+import { CreatorsPipe } from './pipes/creators.pipe';
+import { TypeDataPipe } from './pipes/type-data.pipe';
+import { CreatorComponent } from './components/creator/creator.component';
 
 
 
@@ -27,7 +32,12 @@ import { ComicComponent } from './components/comic/comic.component';
     SerieDetailsComponent,
     SeriesListComponent,
     CharacterComponent,
-    ComicComponent
+    ComicComponent,
+    ConcatThumbnailPipe,
+    PricePipe,
+    CreatorsPipe,
+    TypeDataPipe,
+    CreatorComponent
   ],
   imports: [
     CommonModule,

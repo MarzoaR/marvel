@@ -1,1 +1,20 @@
-<p>comic-details works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-4">
+      <img [src]="comic.thumbnail | cancatImage" alt="{{ comic.title }}" class="img-fluid">
+    </div>
+    <div class="col col-sm-8">
+      <h3>{{ comic.title }}</h3>
+      <h4>Description:</h4>
+      <p *ngIf="comic.description === null || comic.description === '' ;else templateName">No data</p>
+      <ng-template #templateName>
+        <p>{{ comic.description }}</p>
+      </ng-template>
+      <p class="card-text"><strong>Price: </strong>{{ comic.prices | price }} $</p>
+
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,1 +1,18 @@
-<p>Character-list work</p>
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-4">
+      <img [src]="lista.thumbnail | cancatImage" alt="{{ lista.name }}" class="img-fluid">
+    </div>
+    <div class="col col-sm-8">
+      <h3>{{ lista.name }}</h3>
+      <h4>Description:</h4>
+      <p *ngIf="lista.description != '';else templateName">{{ lista.description }}</p>      
+      <ng-template #templateName>
+        <p> No data</p>
+      </ng-template>
+
+    </div>
+  </div>
+</div>
+
+
