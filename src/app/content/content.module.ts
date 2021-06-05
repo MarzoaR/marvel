@@ -18,6 +18,7 @@ import { PricePipe } from './pipes/price.pipe';
 import { CreatorsPipe } from './pipes/creators.pipe';
 import { TypeDataPipe } from './pipes/type-data.pipe';
 import { CreatorComponent } from './components/creator/creator.component';
+import { SerieComponent } from './components/serie/serie.component';
 
 
 
@@ -37,7 +38,8 @@ import { CreatorComponent } from './components/creator/creator.component';
     PricePipe,
     CreatorsPipe,
     TypeDataPipe,
-    CreatorComponent
+    CreatorComponent,
+    SerieComponent
   ],
   imports: [
     CommonModule,
