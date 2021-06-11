@@ -11,6 +11,8 @@ import { ContentService } from '../../services/content-service.service';
 
 export class ComicsListComponent implements OnInit {
 
+  spinner: boolean = false;
+
   listComics: Comics[] = [];
 
   offset: number = 0;
@@ -35,10 +37,13 @@ export class ComicsListComponent implements OnInit {
 
 
   getComicsScroll(){
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
     this.offset +=20;
     this.contentService.getComicsInfinity( this.offset )
     .subscribe( resp => {
       this.listComics.push(...resp.data.results);
+      this.spinner = false;
+      document.getElementsByTagName("html")[0].style.overflow = "auto";
     });
 
   }
@@ -48,6 +53,7 @@ export class ComicsListComponent implements OnInit {
     let result: number = this.document.documentElement.offsetHeight - window.pageYOffset;
 
     if( Math.floor(result) <= window.innerHeight ){
+      this.spinner = true;
       this.getComicsScroll();
     }
 

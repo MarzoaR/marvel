@@ -11,6 +11,8 @@ import { ContentService } from '../../services/content-service.service';
 
 export class SeriesListComponent implements OnInit {
 
+  spinner: boolean = false;
+
   listSeries: Series[] = [];
 
   offset: number = 0;
@@ -35,10 +37,13 @@ export class SeriesListComponent implements OnInit {
 
 
   getSeriesScroll(){
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
     this.offset +=20;
     this.contentService.getSeriesInfinity( this.offset )
     .subscribe( resp => {
       this.listSeries.push(...resp.data.results);
+      this.spinner = false;
+      document.getElementsByTagName("html")[0].style.overflow = "auto";
     });
 
   }
@@ -48,6 +53,7 @@ export class SeriesListComponent implements OnInit {
     let result: number = this.document.documentElement.offsetHeight - window.pageYOffset;
 
     if( Math.floor(result) <= window.innerHeight ){
+      this.spinner = true;
       this.getSeriesScroll();
     }
 

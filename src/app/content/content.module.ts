@@ -20,7 +20,8 @@ import { TypeDataPipe } from './pipes/type-data.pipe';
 import { CreatorComponent } from './components/creator/creator.component';
 import { SerieComponent } from './components/serie/serie.component';
 
-import { AtomSpinnerModule } from 'angular-epic-spinners';
+import { OrbitSpinnerModule } from 'angular-epic-spinners';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -41,12 +42,13 @@ import { AtomSpinnerModule } from 'angular-epic-spinners';
     CreatorsPipe,
     TypeDataPipe,
     CreatorComponent,
-    SerieComponent
+    SerieComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
     ContentRoutingModule,
-    AtomSpinnerModule
+    OrbitSpinnerModule
   ]
 })
 export class ContentModule { }

@@ -11,6 +11,8 @@ import { ContentService } from '../../services/content-service.service';
 
 export class CharactersListComponent implements OnInit {
 
+  spinner: boolean = false;
+
   listCharacters: Characters[] = [];
 
   offset: number = 0;
@@ -26,19 +28,22 @@ export class CharactersListComponent implements OnInit {
   }
 
   getCharacters(){
-    
+
     this.contentService.getCharacters()
         .subscribe( resp => {
           this.listCharacters.push(...resp.data.results);
         });
   }
-  
+
 
   getCharactersScroll(){
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
     this.offset +=20;
     this.contentService.getCharactersInfinity( this.offset )
     .subscribe( resp => {
       this.listCharacters.push(...resp.data.results);
+      this.spinner = false;
+      document.getElementsByTagName("html")[0].style.overflow = "auto";
     });
 
   }
@@ -52,6 +57,7 @@ export class CharactersListComponent implements OnInit {
     let result: number = this.document.documentElement.offsetHeight - window.pageYOffset;
 
     if( Math.floor(result) <= window.innerHeight ){
+      this.spinner = true;
       this.getCharactersScroll();
       // console.log('Se ejecuta el scroll');
     }

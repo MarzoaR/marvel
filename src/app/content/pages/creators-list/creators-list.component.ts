@@ -11,6 +11,8 @@ import { ContentService } from '../../services/content-service.service';
 
 export class CreatorsListComponent implements OnInit {
 
+  spinner: boolean = false;
+
   listCreators: Creators[] = [];
 
   offset: number = 0;
@@ -35,10 +37,13 @@ export class CreatorsListComponent implements OnInit {
 
 
   getCreatorsScroll(){
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
     this.offset +=20;
     this.contentService.getCreatorsInfinity( this.offset )
         .subscribe( resp => {
           this.listCreators.push(...resp.data.results);
+          this.spinner = false;
+          document.getElementsByTagName("html")[0].style.overflow = "auto";
         });
 
   }
@@ -48,6 +53,7 @@ export class CreatorsListComponent implements OnInit {
     let result: number = this.document.documentElement.offsetHeight - window.pageYOffset;
 
     if( Math.floor(result) <= window.innerHeight ){
+      this.spinner = true;
       this.getCreatorsScroll();
     }
 
