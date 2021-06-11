@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component,HostListener, Inject, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { Comics } from '../../interfaces/comics.interface';
 import { ContentService } from '../../services/content-service.service';
 

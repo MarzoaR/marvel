@@ -50,16 +50,11 @@ export class CharactersListComponent implements OnInit {
   @HostListener('window:scroll')
   onWindowScroll():void {
 
-    // console.log('documentElement.offsetHeight', this.document.documentElement.offsetHeight);
-    // console.log('pageYOffset', window.pageYOffset);
-    // console.log('innerHeight', window.innerHeight);
-
     let result: number = this.document.documentElement.offsetHeight - window.pageYOffset;
 
     if( Math.floor(result) <= window.innerHeight ){
       this.spinner = true;
       this.getCharactersScroll();
-      // console.log('Se ejecuta el scroll');
     }
 
   }
