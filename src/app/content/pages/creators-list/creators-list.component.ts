@@ -45,7 +45,9 @@ export class CreatorsListComponent implements OnInit {
   @HostListener('window:scroll')
   onWindowScroll():void {
 
-    if(this.document.documentElement.offsetHeight - window.pageYOffset == window.innerHeight){
+    let result: number = this.document.documentElement.offsetHeight - window.pageYOffset;
+
+    if( Math.floor(result) <= window.innerHeight ){
       this.getCreatorsScroll();
     }
 

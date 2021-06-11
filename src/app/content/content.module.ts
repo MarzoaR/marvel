@@ -20,6 +20,8 @@ import { TypeDataPipe } from './pipes/type-data.pipe';
 import { CreatorComponent } from './components/creator/creator.component';
 import { SerieComponent } from './components/serie/serie.component';
 
+import { AtomSpinnerModule } from 'angular-epic-spinners';
+
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { SerieComponent } from './components/serie/serie.component';
   ],
   imports: [
     CommonModule,
-    ContentRoutingModule
+    ContentRoutingModule,
+    AtomSpinnerModule
   ]
 })
 export class ContentModule { }
