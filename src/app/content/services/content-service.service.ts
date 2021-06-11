@@ -1,15 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SearchComicsResponse } from '../interfaces/comics.interface';
-import { SearchCharactersResponse } from '../interfaces/characters.interface';
-import { SearchCreatorsResponse } from '../interfaces/creators.interface';
-
+import { Observable } from 'rxjs';
 
 
 import {Md5} from 'ts-md5/dist/md5';
-import { Observable } from 'rxjs';
 import { SearchSeriesResponse } from '../interfaces/series.interface';
+import { SearchComicsResponse } from '../interfaces/comics.interface';
+import { SearchCharactersResponse } from '../interfaces/characters.interface';
+import { SearchCreatorsResponse } from '../interfaces/creators.interface';
 
 @Injectable({
   providedIn: 'root'
