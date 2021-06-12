@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentService } from '../../content/services/content-service.service';
+import { News } from '../Interfaces/news.interface';
+import { HomeService } from '../services/home-service.service';
 
 @Component({
   selector: 'app-news',
@@ -8,11 +9,23 @@ import { ContentService } from '../../content/services/content-service.service';
 })
 export class NewsComponent implements OnInit {
 
-  constructor( private serviceServices: ContentService) { }
+  news: News[] = [];
+
+  constructor( private serviceServices: HomeService ) { }
 
   ngOnInit(): void {
 
-    // console.log(this.serviceServices.buscarComics());
+    this.getNews();
+
+  }
+
+  getNews(){
+
+    this.serviceServices.getNews()
+    .subscribe( resp => {
+      this.news = resp;
+      console.log(this.news);
+    })
   }
 
 }

@@ -6,14 +6,14 @@ import { News } from '../Interfaces/news.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeServiceService {
+export class HomeService {
 
   urlNews: string = 'https://marvel-f1ce9-default-rtdb.firebaseio.com/news.json';
 
   constructor( private http: HttpClient ) { }
 
-  getNews(): Observable<News>{
+  getNews(): Observable<News[]>{
 
-    return this.http.get<News>( this.urlNews );
+    return this.http.get<News[]>( this.urlNews );
   }
 }

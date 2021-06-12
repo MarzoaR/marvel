@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+
+    <div  *ngFor="let n of news"
+          class="col-12">
+<!-- Card -->
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <a [href]="n.url" target="_blank" rel="noopener noreferrer">
+              <img [src]="n.img" class="img-fluid" [alt]="n.title">
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <a [href]="n.url" target="_blank" class="link-none" rel="noopener noreferrer">
+                <h5 class="card-title">{{ n.title }}</h5>
+                <p class="card-text">{{ n.description }}</p>
+              </a>
+              <p class="card-text"><small class="text-muted">{{ n.date }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- EndCard -->
+    </div>
+
+  </div>
+</div>
